@@ -2,6 +2,7 @@ package com.qx.consumer.controller;
 
 import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.qx.consumer.service.DemoService;
+import com.qx.core.utils.ValidationUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ public class DemoController {
 	@RequestMapping(value = "/demo", method = RequestMethod.POST)
 	@ResponseBody
 	public String demo(@RequestBody String postData){
-			return demoService.demo().toString();
+			return ValidationUtil.successReturn(demoService.demo());
 	}
 	/**
 	 *
